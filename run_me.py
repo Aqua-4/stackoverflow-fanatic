@@ -49,9 +49,15 @@ def days_num():
     #     '//div[@class="s-progress--bar"]')
     badge = driver.find_element_by_xpath(
         '//div[@data-badge-database-name="Fanatic"]')
-    num = badge.get_attribute('innerText').splitlines()[0].replace('Fanatic - ','')
+    num = badge.get_attribute('innerText').splitlines()[
+        0].replace('Fanatic - ', '')
     print(num)
+    # append count to yaml file
+    with open('data.yaml', 'a') as outfile:
+        yaml.dump({'count': num}, outfile, default_flow_style=False)
+    driver.quit()
 #    txt=badge.get_attribute('innerText')
+
 
 # MAIN
 if not os.path.exists('data.yaml'):

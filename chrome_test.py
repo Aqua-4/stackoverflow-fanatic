@@ -48,10 +48,9 @@ def days_num():
     #     '//div[@class="s-progress--bar"]')
     badge = driver.find_element_by_xpath(
         '//div[@data-badge-database-name="Fanatic"]')
-    num = .get_attribute('innerText').splitlines()[0]
-    
+    num = badge.get_attribute('innerText').splitlines()[0].replace('Fanatic - ','')
+    print(num)
 #    txt=badge.get_attribute('innerText')
-    
 
 # MAIN
 if not os.path.exists('data.yaml'):
@@ -69,3 +68,4 @@ options.add_argument("--disable-infobars")
 driver = webdriver.Chrome(options=options)
 
 login(data['uname'], data['password'])
+days_num()

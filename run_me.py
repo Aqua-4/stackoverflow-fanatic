@@ -32,6 +32,7 @@ def login(uname, passwd):
 
 
 def days_num():
+    driver.implicitly_wait(10)
     # navigate to user profile
     driver.find_element_by_xpath(
         '//img[@class="-avatar js-avatar-me"]').click()

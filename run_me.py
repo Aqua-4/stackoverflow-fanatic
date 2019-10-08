@@ -65,7 +65,7 @@ options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")
 options.add_argument("--disable-infobars")
 
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(chrome_options=options)
 
 login(data['uname'], data['password'])
 days_num()

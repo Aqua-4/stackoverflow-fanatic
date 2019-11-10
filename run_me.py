@@ -35,7 +35,9 @@ def days_num():
     driver.implicitly_wait(10)
     # navigate to user profile
     driver.find_element_by_xpath(
-        '//img[@class="-avatar js-avatar-me"]').click()
+        '//img[@class="bar-sm -avatar js-avatar-me"]').click()
+    #driver.find_element_by_xpath(
+    #    '//img[contains(@class,"-avatar js-avatar-me")]').click()
     # click on badge settings
     driver.find_element_by_xpath(
         '//a[@id="badge-card-settings"]').click()
@@ -53,8 +55,8 @@ def days_num():
         0].replace('Fanatic - ', '')
     print(num)
     # append count to yaml file
-    with open('data.yaml', 'a') as outfile:
-        yaml.dump({'count': num}, outfile, default_flow_style=False)
+    # with open('data.yaml', 'a') as outfile:
+    #    yaml.dump({'count': num}, outfile, default_flow_style=False)
     driver.quit()
 #    txt=badge.get_attribute('innerText')
 
